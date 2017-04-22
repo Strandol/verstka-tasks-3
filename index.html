@@ -4,15 +4,241 @@
         <meta charset="utf-8">
         <title>Лет ми спик фром май харт</title>
         <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
     </head>
     <body>
-        <!-- Поле для фильтрации по городу -->
+        <input type="checkbox" id="inFlight" name="statusFlight">
+        <input type="checkbox" id="inLanding" name="statusFlight">
+        <input type="checkbox" id="terminalA" name="terminal">
+        <input type="checkbox" id="terminalB" name="terminal">
+        <input type="checkbox" id="terminalC" name="terminal">
+        <input type="checkbox" id="terminalD" name="terminal">
         <input
             type="text"
+            id="departure_town"
             placeholder="Город отправления"
             value=""
             onkeyup="this.setAttribute('value', this.value)">
-
-        <!-- Здесь применять вашу самую сильную магию -->
+        <div class="tableFilters">
+            <div class="tableFilters__statusFilters">
+                <label for="inFlight" name="statusFlight"></label>
+                <label for="inLanding" name="statusFlight"></label>
+            </div>
+            <div class="tableFilters__terminals">
+                <p>Терминал:</p>
+                <label for="terminalA" name="terminal">A</label>
+                <label for="terminalB" name="terminal">B</label>
+                <label for="terminalC" name="terminal">C</label>
+                <label for="terminalD" name="terminal">D</label>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="type-flight">Тип рейса</th>
+                    <th class="number-flight">Номер рейса</th>
+                    <th class="aircompany">Авиакомпания</th>
+                    <th class="logo-company">Логотип авиакомпании</th>
+                    <th class="type-aircraft">Тип воздушного судна</th>
+                    <th class="departure-town">Город отправления</th>
+                    <th class="destination-airport">Аэропорт назначения</th>
+                    <th class="flight-time">Плановое время вылета или прилёта</th>
+                    <th class="number-terminal">Номер терминала</th>
+                    <th class="status-flight">Статус рейса</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="inLanding termC Moskow">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Прилёт"></td>
+                    <td>1</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>Moskow</td>
+                    <td>Turkish Airport</td>
+                    <td>11:20</td>
+                    <td>C</td>
+                    <td><span class="failed">Отменён</span></td>
+                </tr>
+                <tr class="inFlight termA London">
+                    <td><img width='50' height='50' src="src\img\inFlight.png" alt="Прилёт"></td>
+                    <td>2</td>
+                    <td>China Air</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\China.png" alt="China Air"></td>
+                    <td>Embraer 170</td>
+                    <td>London</td>
+                    <td>China Airport</td>
+                    <td>9:10</td>
+                    <td>A</td>
+                    <td><span class="inProcess">Летит</span></td>
+                </tr>
+                <tr class="inFlight termB Moskow">
+                    <td><img width='50' height='50' src="src\img\inFlight.png" alt="Вылет"></td>
+                    <td>3</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>Moskow</td>
+                    <td>Turkish Airport</td>
+                    <td>23:20</td>
+                    <td>B</td>
+                    <td><span class="atStart">Регистрация</span></td>
+                </tr>
+                <tr class="inLanding termA Kyiv">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Прилёт"></td>
+                    <td>4</td>
+                    <td>China Air</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\China.png" alt="China Air"></td>
+                    <td>Embraer 170</td>
+                    <td>Kyiv</td>
+                    <td>China Airport</td>
+                    <td>10:10</td>
+                    <td>A</td>
+                    <td><span class="failed">Отменён</span></td>
+                </tr>
+                <tr class="inLanding termC Kyiv">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Вылет"></td>
+                    <td>5</td>
+                    <td>China Air</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\China.png" alt="China Air"></td>
+                    <td>Embraer 170</td>
+                    <td>Kyiv</td>
+                    <td>China Airport</td>
+                    <td>00:30</td>
+                    <td>C</td>
+                    <td><span class="delivered">Посадка закончена</span></td>
+                </tr>
+                <tr class="inLanding termD Moskow">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Прилёт"></td>
+                    <td>6</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>Moskow</td>
+                    <td>Turkish Airport</td>
+                    <td>15:00</td>
+                    <td>D</td>
+                    <td><span class="failed">Отменён</span></td>
+                </tr>
+                <tr class="inFlight termB Helsinki">
+                    <td><img width='50' height='50' src="src\img\inFlight.png" alt="Прилёт"></td>
+                    <td>7</td>
+                    <td>China Air</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\China.png" alt="China Air"></td>
+                    <td>Embraer 170</td>
+                    <td>Helsinki</td>
+                    <td>China Airport</td>
+                    <td>5:30</td>
+                    <td>B</td>
+                    <td><span class="inProcess">Летит</span></td>
+                </tr>
+                <tr class="inFlight termA Vena">
+                    <td><img width='50' height='50' src="src\img\inFlight.png" alt="Вылет"></td>
+                    <td>8</td>
+                    <td>American Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\American.jpg" alt="American Airlines"></td>
+                    <td>Boeing 737</td>
+                    <td>Vena</td>
+                    <td>American Airport</td>
+                    <td>4:10</td>
+                    <td>A</td>
+                    <td><span class="inProcess">Вылетел</span></td>
+                </tr>
+                <tr class="inLanding termB London">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Прилёт"></td>
+                    <td>9</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>London</td>
+                    <td>Turkish Airport</td>
+                    <td>7:00</td>
+                    <td>B</td>
+                    <td><span class="failed">Отменён</span></td>
+                </tr>
+                <tr class="inLanding termC Berlin">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Вылет"></td>
+                    <td>10</td>
+                    <td>China Air</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\China.png" alt="China Air"></td>
+                    <td>Embraer 170</td>
+                    <td>Berlin</td>
+                    <td>China Airport</td>
+                    <td>20:00</td>
+                    <td>C</td>
+                    <td><span class="delivered">Посадка закончена</span></td>
+                </tr>
+                <tr class="inLanding termA Parish">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Прилёт"></td>
+                    <td>11</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>Parish</td>
+                    <td>Turkish Airport</td>
+                    <td>10:00</td>
+                    <td>A</td>
+                    <td><span class="delivered">Приземлился</span></td>
+                </tr>
+                <tr class="inFlight termC Parish">
+                    <td><img width='50' height='50' src="src\img\inFlight.png" alt="Вылет"></td>
+                    <td>12</td>
+                    <td>American Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\American.jpg" alt="American Airlines"></td>
+                    <td>Boeing 737</td>
+                    <td>Parish</td>
+                    <td>American Airport</td>
+                    <td>17:00</td>
+                    <td>C</td>
+                    <td><span class="atStart">Регистрация</span></td>
+                </tr>
+                <tr class="inLanding termC London">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Вылет"></td>
+                    <td>13</td>
+                    <td>American Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\American.jpg" alt="American Airlines"></td>
+                    <td>Boeing 737</td>
+                    <td>London</td>
+                    <td>American Airport</td>
+                    <td>6:00</td>
+                    <td>C</td>
+                    <td><span class="failed">Отменён</span></td>
+                </tr>
+                <tr class="inFlight termA Moskow">
+                    <td><img width='50' height='50' src="src\img\inFlight.png" alt="Прилёт"></td>
+                    <td>14</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>Moskow</td>
+                    <td>Turkish Airport</td>
+                    <td>11:50</td>
+                    <td>A</td>
+                    <td><span class="inProcess">Летит</span></td>
+                </tr>
+                <tr class="inLanding termA Helsinki">
+                    <td><img width='50' height='50' src="src\img\landing.png" alt="Прилёт"></td>
+                    <td>15</td>
+                    <td>Turkish Airlines</td>
+                    <td class="logo"><img height='70' width="70" src="src\img\Turkish.jpg" alt="Turkish Airlines"></td>
+                    <td>Airbus A300</td>
+                    <td>Helsinki</td>
+                    <td>Turkish Airport</td>
+                    <td>20:30</td>
+                    <td>A</td>
+                    <td><span class="failed">Отменён</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <form class="" action="index.html" method="post">
+            <div class="inputFields">
+                <label for="telField">Ваш телефон:</label>
+                <label for="emailField">Ваш email:</label><br>
+                <input id="telField" type="tel" name="tel" placeholder="+3(333)333-33-33" required>
+                <input id="emailField" type="email" name="email" placeholder="unknown@gmail.com" required>
+                <input type="submit" name="personInfo" value="Отправить данные о рейсе на телефон">
+            </div>
+        </form>
     </body>
 </html>

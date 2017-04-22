@@ -1,0 +1,408 @@
+body
+{
+    font-family: Fira Sans Condensed, sans-serif, serif;
+    font-size: 18px;
+    margin: 0;
+    margin-top: 50px;
+    max-height: 100%;
+}
+
+table
+{
+    min-width: 1000px;
+    max-width: 1600px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+table,
+table td,
+table th
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table thead tr th
+{
+    font-family: monospace;
+    color: #2f1f1a;
+    font-size: 18px;
+    padding: 10px;
+    background: linear-gradient(to bottom, #299ee5, #165c87);
+}
+
+table thead tr th:hover
+{
+    background: linear-gradient(to bottom, #05c3fb, #165c87);
+}
+
+table tbody tr:nth-child(n) td::before,
+table tbody tr:nth-child(2n) td::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #712fdb;
+    z-index: -2;
+}
+
+table tbody tr:nth-child(n) td:before
+{
+    background-color: #712fdb;
+}
+
+table tbody tr:nth-child(2n) td:before
+{
+    background-color: #9b6fe1;
+}
+
+table tbody tr:hover
+{
+    background: #e3621c;
+}
+
+table tbody tr td,
+table thead tr th
+{
+    position: relative;
+}
+
+table tbody tr td:hover:before,
+table thead tr th:hover:before
+{
+    content: '';
+    position: absolute;
+    background-color: #e3621c;
+    width: 100%;
+    height: 4000px;
+    left: 0;
+    top: -2000px;
+    z-index: -1;
+}
+
+@keyframes scale {
+    from {
+        height: 70px;
+        width: 70px;
+    }
+
+    75% {
+        height: 110px;
+        width: 110px;
+    }
+
+    to {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+table tbody tr td[class="logo"] img
+{
+    vertical-align: middle;
+}
+
+table tbody tr td[class="logo"]:hover img
+{
+    animation-name: scale;
+    animation-duration: 3s;
+}
+
+label[for="telField"],
+label[for="emailField"]
+{
+    font-size: 20px;
+    margin: 75px;
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="submit"]
+{
+    font-size: 20px;
+    font-family: Fira Sans Condensed, sans-serif, serif;
+    height: 40px;
+    width: 200px;
+    padding-right: 10px;
+    padding-left: 5px;
+    margin: 20px;
+    margin-top: 10px;
+    border: 3px solid #f29140;
+    outline: none;
+}
+
+input[type="tel"]:hover,
+input[type="email"]:hover
+{
+    border: 3px solid #1fabc9;
+}
+
+input[type="tel"]:focus,
+input[type="email"]:focus
+{
+    border: 3px solid #2f84e3;
+}
+
+.inputFields
+{
+    text-align: center;
+}
+
+input[type="submit"]
+{
+    width: 400px;
+    display: none;
+    color: #d04420;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+input[type="tel"]:valid ~ input[type="email"]:valid ~ input[type="submit"]
+{
+    display: block;
+    background: linear-gradient(to bottom, #3578c3, #2eccd8);
+}
+
+input[type="tel"]:valid ~ input[type="email"]:valid ~ input[type="submit"]:hover
+{
+    background: linear-gradient(to bottom, #15b620, #7ff226);
+    border: 3px solid #1fabc9;
+}
+
+.tableFilters
+{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 0;
+    background: linear-gradient(to bottom, #ea5f13, #ee8809);
+    border-radius: 5px 5px 0 0;
+    min-width: 1000px;
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.tableFilters__statusFilters
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+input[id="inFlight"],
+input[id="inLanding"],
+input[id="terminalA"],
+input[id="terminalB"],
+input[id="terminalC"],
+input[id="terminalD"]
+{
+    display: none;
+}
+
+label[for="inFlight"]
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label[for="inLanding"]
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: -2px;
+    cursor: pointer;
+}
+
+label[for="inFlight"]
+{
+    background: url('src/img/inFlight.png') no-repeat;
+    background-size: 50px 50px;
+}
+
+label[for="inLanding"]
+{
+    background: url('src/img/landing.png') no-repeat;
+    background-size: 50px 50px;
+}
+
+label[for="inFlight"]:hover,
+label[for="inLanding"]:hover
+{
+    box-shadow: 0px 2px 1px 1px #19191a;
+}
+
+input[id="inFlight"]:checked ~ .tableFilters label[for="inFlight"]
+{
+    background: url('src/img/inFlight_Active.png') no-repeat;
+    background-size: 50px 50px;
+}
+
+input[id="inLanding"]:checked ~ .tableFilters label[for="inLanding"]
+{
+    background: url('src/img/landing_Active.png') no-repeat;
+    background-size: 50px 50px;
+}
+
+input[id="inFlight"]:checked ~ table tbody tr[class*="inLanding"],
+input[id="inLanding"]:checked ~ table tbody tr[class*="inFlight"]
+{
+    display: none;
+}
+
+.tableFilters p
+{
+    display: inline-block;
+    font-size: 20px;
+    margin: 0;
+}
+
+.tableFilters__terminals
+{
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+label[for="terminalA"],
+label[for="terminalB"],
+label[for="terminalC"],
+label[for="terminalD"]
+{
+    font-size: 18px;
+    font-family: Bevan, sans-serif;
+    text-align: center;
+    padding-top: 13px;
+    margin-left: 5px;
+    display: inline-block;
+    color: black;
+    width: 50px;
+    height: 37px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+label[for="terminalA"]
+{
+    background: #be26c7;
+}
+
+label[for="terminalB"]
+{
+    background: #2c2ff2;
+}
+
+label[for="terminalC"]
+{
+    background: #2dcc40;
+}
+
+label[for="terminalD"]
+{
+    background: #ea1515;
+}
+
+label[for="terminalA"]:hover,
+label[for="terminalB"]:hover,
+label[for="terminalC"]:hover,
+label[for="terminalD"]:hover
+{
+    box-shadow: 0px 2px 2px 2px #19191a;
+}
+
+input[id="terminalA"]:checked ~ .tableFilters .tableFilters__terminals label[for="terminalA"],
+input[id="terminalB"]:checked ~ .tableFilters .tableFilters__terminals label[for="terminalB"],
+input[id="terminalC"]:checked ~ .tableFilters .tableFilters__terminals label[for="terminalC"],
+input[id="terminalD"]:checked ~ .tableFilters .tableFilters__terminals label[for="terminalD"]
+{
+    background: linear-gradient(to bottom, #6f797e, #b7ccd8);
+}
+
+input[id="terminalA"]:checked ~ table tbody tr[class*="termA"],
+input[id="terminalB"]:checked ~ table tbody tr[class*="termB"],
+input[id="terminalC"]:checked ~ table tbody tr[class*="termC"],
+input[id="terminalD"]:checked ~ table tbody tr[class*="termD"]
+{
+    display: none;
+}
+
+input[id="departure_town"]
+{
+    font-family: Fira Sans Condensed, sans-serif, serif;
+    font-size: 18px;
+    height: 30px;
+    width: 200px;
+    border: 3px solid #759dd4;
+    margin: 0 auto;
+    display: inherit;
+    position: relative;
+    margin-bottom: -50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    outline: none;
+}
+
+input[id="departure_town"]:hover
+{
+    border: 3px solid #28d4be;
+}
+
+input[id="departure_town"]:focus
+{
+    border: 3px solid #166fc1;
+}
+
+input[id="departure_town"][value="Moskow"] ~ table tbody tr:not([class*="Moskow"]),
+input[id="departure_town"][value="London"] ~ table tbody tr:not([class*="London"]),
+input[id="departure_town"][value="Kyiv"] ~ table tbody tr:not([class*="Kyiv"]),
+input[id="departure_town"][value="Vena"] ~ table tbody tr:not([class*="Vena"]),
+input[id="departure_town"][value="Berlin"] ~ table tbody tr:not([class*="Berlin"]),
+input[id="departure_town"][value="Parish"] ~ table tbody tr:not([class*="Parish"]),
+input[id="departure_town"][value="Helsinki"] ~ table tbody tr:not([class*="Helsinki"])
+{
+    display: none;
+}
+
+.atStart,
+.inProcess,
+.failed,
+.delivered
+{
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.atStart
+{
+    background: #43e51e;
+}
+
+.inProcess
+{
+    background: yellow;
+}
+
+.failed
+{
+    background: red;
+}
+
+.delivered
+{
+    background: #1f780b;
+}
